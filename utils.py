@@ -1,3 +1,8 @@
+import torchvision
+from torch import nn
+import torch
+import matplotlib.pyplot as plt
+
 def show(tensors, figsize=(10, 10), *args, **kwargs):
     try:
         tensors = tensors.detach().cpu()
