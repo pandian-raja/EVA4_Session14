@@ -49,17 +49,24 @@ def importDataset():
     print(len(list(f3.iterdir())))
     print(len(list(f4.iterdir())))
     scale_transform = transforms.Compose([
-    transforms.Resize((256, 256)),
+    transforms.Resize((128, 128)),
     #transforms.ColorJitter(brightness=0.2, contrast = 0.2, saturation = 0.2, hue = 0.2),
     transforms.ToTensor(),                                    
     ])
+    grayTransform  = transforms.Compose([
+      transforms.Grayscale(num_output_channels=1),
+      transforms.Resize((128, 128)),
+      #transforms.ColorJitter(brightness=0.2, contrast = 0.2, saturation = 0.2, hue = 0.2),
+      transforms.ToTensor(),                                    
+      ])
+
     mean, std = torch.tensor([0.485, 0.456, 0.406])*255, torch.tensor([0.229, 0.224, 0.225])*255
     train_transforms = transforms.Compose([
-        transforms.Resize((256, 256)),
-        transforms.ColorJitter(brightness=0.05, contrast=0.05, saturation=0.05, hue= 0.05),
+        transforms.Resize((128, 128)),
+        transforms.ColorJitter(brightness=0.15, contrast=0.15, saturation=0.15, hue= 0.15),
         transforms.ToTensor(),
         transforms.Normalize(mean, std)
     ])
-    train_ds = MasterData(data_root, train_transforms, scale_transform)
-    train_d1 = DataLoader(train_ds, batch_size=16, shuffle=True, pin_memory=True)
+    train_ds = MasterData(data_root, train_transforms, scale_transform,grayTransform)
+    train_d1 = DataLoader(train_ds, batch_size=8, shuffle=True, pin_memory=True)
     return train_d1
