@@ -127,12 +127,14 @@ Estimated Total Size (MB): 547.83
   
   For Practice, I started with 160k images(40k images each ) total. My approach is to start with a small dataset and get the proof of the working model and tune up the data augmentation and, at last, train the whole dataset.
   Data Augmentation: I converted all images into 128x128 to avoid GPU memory out of error. And I used ColorJitter to change the contrast, brightness, and saturation of images randomly. 
-  > transforms.Resize((128, 128)),
-  > transforms.ColorJitter(brightness=0.15, contrast=0.15, saturation=0.15, hue= 0.15)
-  
+```  
+  transforms.Resize((128, 128)),
+  transforms.ColorJitter(brightness=0.15, contrast=0.15, saturation=0.15, hue= 0.15)
+```
 
 ## Trail 1: Predicting only Depth Image(RGB)
 	For the trail, I first started with predicting only the depth image from background and background with the person images, but the result was not working, and all images were blank.
+Output: ![U-net model](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/depth_only.png)
 
 ## Trail 2:  Predicting Mask and Depth Image(RGB)
   I tried to predict the mask and depth and assume that adding the mask will help to predict the depth image. Only the mask was predicting, and depth was not predicting at all. Almost the same result as the (Trail 1).
