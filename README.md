@@ -3,7 +3,7 @@
 Predict Mask from the background and background with the person.
 Predict Depth and Mask from the background and background with the person.
 
-My end goal was to try and implement like https://www.youtube.com/watch?v=9spwoDYwW_I from FastAI_Lession_7
+My end goal was to try and implement similar approach from https://www.youtube.com/watch?v=9spwoDYwW_I from FastAI_Lession_7
   ![Goal](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/end_goal.png)
 
 ## 1. Predict Mask from the background and background with the person.
