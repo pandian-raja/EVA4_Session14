@@ -10,6 +10,7 @@ After 10 Epoch, The Training Loss for subtraction method is 0.017246 and concati
 ## 2. Predict Depth and Mask images from the background and background with the person.
   Model: My intuition is to combine ResNet and U-nets. From https://towardsdatascience.com/u-nets-with-resnet-encoders-and-cross-connections-d8ba94125a2c. My model has 40,866,048 parameters. 
   ![U-net model](http://deeplearning.net/tutorial/_images/unet.jpg)
+  ```
   ----------------------------------------------------------------
         Layer (type)               Output Shape         Param #
 ================================================================
@@ -122,7 +123,7 @@ Forward/backward pass size (MB): 391.75
 Params size (MB): 155.89
 Estimated Total Size (MB): 547.83
 ----------------------------------------------------------------
-  
+```  
   
   For Practice, I started with 160k images(40k images each ) total. My approach is to start with a small dataset and get the proof of the working model and tune up the data augmentation and, at last, train the whole dataset.
   Data Augmentation: I converted all images into 128x128 to avoid GPU memory out of error. And I used ColorJitter to change the contrast, brightness, and saturation of images randomly. 
