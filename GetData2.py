@@ -11,14 +11,15 @@ from zipfile import ZipFile
 import zipfile
 
 class MasterData(Dataset):
-    def __init__(self, data_root, transform=None,scale_transform=None,f1=Path('bg/'), f2=Path('fg_bg/'), f3=Path('mask_fg_bg/') ,f4=Path('depth/')):
+    def __init__(self, data_root, transform=None,scale_transform=None,grayTransform=None,f1=Path('bg/'), f2=Path('fg_bg/'), f3=Path('mask_fg_bg/') ,f4=Path('depth/')):
         self.f1_files = list(f1.glob('*.jpeg'))
         self.f2_files = list(f2.glob('*.jpeg'))
         self.f3_files = list(f3.glob('*.jpeg'))
         self.f4_files = list(f4.glob('*.jpeg'))
         self.transform = transform
         self.scale_transform = scale_transform
-            
+        self.grayTransform = grayTransform
+
     def __len__(self):
         return len(self.f1_files)
 
@@ -31,8 +32,8 @@ class MasterData(Dataset):
         if self.transform:
             f1_image = self.transform(f1_image)
             f2_image = self.transform(f2_image)
-            f3_image = self.scale_transform(f3_image)
-            f4_image = self.scale_transform(f4_image)
+            f3_image = self.grayTransform(f3_image)
+            f4_image = self.grayTransform(f4_image)
         return {'f1': f1_image, 'f2': f2_image, 'f3': f3_image, 'f4': f4_image}
 
 def importDataset():
@@ -54,12 +55,11 @@ def importDataset():
     transforms.ToTensor(),                                    
     ])
     grayTransform  = transforms.Compose([
-      transforms.Grayscale(num_output_channels=1),
-      transforms.Resize((128, 128)),
-      #transforms.ColorJitter(brightness=0.2, contrast = 0.2, saturation = 0.2, hue = 0.2),
-      transforms.ToTensor(),                                    
+        transforms.Grayscale(num_output_channels=1),
+        transforms.Resize((128, 128)),
+        #transforms.ColorJitter(brightness=0.2, contrast = 0.2, saturation = 0.2, hue = 0.2),
+        transforms.ToTensor(),                                    
       ])
-
     mean, std = torch.tensor([0.485, 0.456, 0.406])*255, torch.tensor([0.229, 0.224, 0.225])*255
     train_transforms = transforms.Compose([
         transforms.Resize((128, 128)),
@@ -67,6 +67,6 @@ def importDataset():
         transforms.ToTensor(),
         transforms.Normalize(mean, std)
     ])
-    train_ds = MasterData(data_root, train_transforms, scale_transform,grayTransform)
-    train_d1 = DataLoader(train_ds, batch_size=8, shuffle=True, pin_memory=True)
+    train_ds = MasterData(data_root, train_transforms, scale_transform)
+    train_d1 = DataLoader(train_ds, batch_size=16, shuffle=True, pin_memory=True)
     return train_d1
