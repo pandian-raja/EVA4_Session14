@@ -134,15 +134,17 @@ Estimated Total Size (MB): 547.83
 
 ## Trail 1: Predicting only Depth Image(RGB)
   For the trail, I first started with predicting only the depth image from background and background with the person images, but the result was not working, and all images were blank.
-Output: ![U-net model](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/depth_only.png)
+Output: ![Depth only model](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/depth_only.png)
 
 ## Trail 2:  Predicting Mask and Depth Image(RGB)
   I tried to predict the mask and depth and assume that adding the mask will help to predict the depth image. Only the mask was predicting, and depth was not predicting at all. Almost the same result as the (Trail 1).
+  Output:
+  ![RGB ](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/RGB.png)
 
 ## Trial 3: Predicting Mask and Depth Image(Grayscale)
   Since the depth image is black and white. I tried two methods.
     1. Only Depth images as Grayscale.
     2. Both Mask and Depth Images as GrayScale.
   Unfortunately, both methods didn't work. 
-
+Output: ![All Grayscale ](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/All_Grayscale.png)
 > Few minor other trials like resizing input size, changing model architecture, and tried loss functions like MSELoss, SSIM, but all my trials didn't work. My intuition is the base model is wrong, and I've to work on base model to predict depth image.
