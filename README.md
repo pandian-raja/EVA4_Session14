@@ -148,6 +148,6 @@ Estimated Total Size (MB): 547.83
     2. Both Mask and Depth Images as GrayScale.
   Unfortunately, both methods didn't work. 
   Output:
-  ![All Grayscale (https://github.com/pandian-raja/EVA4_Session15/blob/master/images/All_Grayscale.png)
+  ![All Grayscale](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/All_Grayscale.png)
 
 > Few minor other trials like resizing input size, changing model architecture, and tried loss functions like MSELoss, SSIM, but all my trials didn't work. My intuition is the base model is wrong, and I've to work on base model to predict depth image.
