@@ -133,7 +133,7 @@ Estimated Total Size (MB): 547.83
 ```
 
 ## Trail 1: Predicting only Depth Image(RGB)
-	For the trail, I first started with predicting only the depth image from background and background with the person images, but the result was not working, and all images were blank.
+  For the trail, I first started with predicting only the depth image from background and background with the person images, but the result was not working, and all images were blank.
 Output: ![U-net model](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/depth_only.png)
 
 ## Trail 2:  Predicting Mask and Depth Image(RGB)
