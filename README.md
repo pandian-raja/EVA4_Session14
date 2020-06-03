@@ -135,6 +135,7 @@ Estimated Total Size (MB): 547.83
 ## Trail 1: Predicting only Depth Image(RGB)
   For the trail, I first started with predicting only the depth image from background and background with the person images, but the result was not working, and all images were blank.
   Output:
+  
   ![Depth only model](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/depth_only.png)
 
 ## Trail 2:  Predicting Mask and Depth Image(RGB)
@@ -149,6 +150,7 @@ Estimated Total Size (MB): 547.83
     Unfortunately, both methods didn't work. 
     
    Output:
+   
    ![All Grayscale](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/All_Grayscale.png)
 
 > Few minor other trials like resizing input size, changing model architecture, and tried loss functions like MSELoss, SSIM, but all my trials didn't work. My intuition is the base model is wrong, and I've to work on base model to predict depth image.
