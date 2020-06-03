@@ -134,12 +134,14 @@ Estimated Total Size (MB): 547.83
 
 ## Trail 1: Predicting only Depth Image(RGB)
   For the trail, I first started with predicting only the depth image from background and background with the person images, but the result was not working, and all images were blank.
+
   Output:
   
   ![Depth only model](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/depth_only.png)
 
 ## Trail 2:  Predicting Mask and Depth Image(RGB)
   I tried to predict the mask and depth and assume that adding the mask will help to predict the depth image. Only the mask was predicting, and depth was not predicting at all. Almost the same result as the (Trail 1).
+  Colab Link: (https://github.com/pandian-raja/EVA4_Session15/blob/master/All_RGB.ipynb)
   Output:
   ![RGB ](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/RGB.png)
 
