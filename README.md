@@ -3,6 +3,9 @@
 Predict Mask from the background and background with the person.
 Predict Depth and Mask from the background and background with the person.
 
+My end goal was to try and implement like https://www.youtube.com/watch?v=9spwoDYwW_I from FastAI_Lession_7
+  ![Goal](https://github.com/pandian-raja/EVA4_Session15/blob/master/images/end_goal.png)
+
 ## 1. Predict Mask from the background and background with the person.
 My method is to subtract (the background with the person) with background image). The result was better than the concating of two images.
 After 10 Epoch, The Training Loss for subtraction method is 0.017246 and concating method's loss is 0.022197
